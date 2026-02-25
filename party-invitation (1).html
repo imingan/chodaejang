@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#08060F">
+<meta property="og:title" content="✦ Private Party Invitation ✦">
+<meta property="og:description" content="프라이빗 파티에 여러분을 초대합니다 — 2026년 2월 27일 금요일 오후 7시 · 강남 밤별 포차 라운지">
+<title>✦ Private Party Invitation ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+KR:wght@300;400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{--gold:#C9A84C;--gold-light:#F0D080;--gold-pale:#E8C87A;--cream:#F5EDD8;--dark:#08060F}
+body{background:var(--dark);color:var(--cream);font-family:'Noto Serif KR',serif;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom)}
+#starCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.bg-atm{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,#2A1050 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 20% 80%,#1A0A30 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 80% 60%,#200A35 0%,transparent 60%),linear-gradient(180deg,#08040E 0%,#0D0820 50%,#080410 100%)}
+.wrapper{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px 80px;gap:32px}
+/* Card */
+.card{max-width:560px;width:100%;text-align:center;animation:cardReveal 1.8s cubic-bezier(.16,1,.3,1) forwards;opacity:0}
+@keyframes cardReveal{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.card-frame{position:relative;padding:60px 50px;border:1px solid rgba(201,168,76,.25);background:rgba(15,8,28,.88);backdrop-filter:blur(12px)}
+.card-frame::before{content:'';position:absolute;inset:8px;border:1px solid rgba(201,168,76,.4);pointer-events:none}
+.card-frame::after{content:'';position:absolute;inset:14px;border:1px solid rgba(201,168,76,.12);pointer-events:none}
+.corner{position:absolute;width:28px;height:28px;border-color:var(--gold);border-style:solid;z-index:3}
+.corner-tl{top:4px;left:4px;border-width:2px 0 0 2px}.corner-tr{top:4px;right:4px;border-width:2px 2px 0 0}
+.corner-bl{bottom:4px;left:4px;border-width:0 0 2px 2px}.corner-br{bottom:4px;right:4px;border-width:0 2px 2px 0}
+.moon-deco{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:28px;filter:drop-shadow(0 0 12px rgba(201,168,76,.6));animation:moonPulse 4s ease-in-out infinite}
+@keyframes moonPulse{0%,100%{filter:drop-shadow(0 0 12px rgba(201,168,76,.5))}50%{filter:drop-shadow(0 0 24px rgba(201,168,76,.9))}}
+.ornament-top{margin-bottom:30px;opacity:0;animation:fadeUp 1s .6s forwards}
+.ornament-top svg{width:180px;height:24px}
+.eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 1s .8s forwards}
+.headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,38px);font-weight:300;font-style:italic;line-height:1.4;margin-bottom:12px;opacity:0;animation:fadeUp 1s 1s forwards;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold-pale) 70%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,.3))}
+.divider{display:flex;align-items:center;gap:16px;margin:28px auto;max-width:300px;opacity:0;animation:fadeUp 1s 1.2s forwards}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider-star{color:var(--gold);font-size:14px}
+.info-block{opacity:0;animation:fadeUp 1s 1.4s forwards}
+.info-item{display:flex;align-items:flex-start;justify-content:center;gap:12px;margin-bottom:18px;line-height:1.7}
+.info-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);padding-top:2px;white-space:nowrap;min-width:44px;text-align:right}
+.info-colon{color:rgba(201,168,76,.4);padding-top:1px}
+.info-value{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:300;color:rgba(245,237,216,.9);text-align:left;letter-spacing:.5px}
+.info-value a{color:var(--gold-pale);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.3)}
+.prep-value{font-style:italic;color:rgba(245,237,216,.75)!important;font-size:13px!important}
+.bottom-message{margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(201,168,76,.55);letter-spacing:1.5px;opacity:0;animation:fadeUp 1s 1.8s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* Guest list */
+.guest-section,.guestbook-section{max-width:560px;width:100%}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;justify-content:center}
+.section-header-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
+.section-header-text{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:var(--gold);white-space:nowrap}
+.guest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.guest-item{position:relative;text-align:center;padding:14px 10px;border:1px solid rgba(201,168,76,.12);background:rgba(15,8,28,.6);backdrop-filter:blur(8px);overflow:hidden;opacity:0;transform:translateY(20px) scale(.95);transition:border-color .3s,background .3s}
+.guest-item.visible{animation:guestReveal .7s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes guestReveal{0%{opacity:0;transform:translateY(20px) scale(.95)}60%{opacity:1;transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.guest-item:hover{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.06)}
+.guest-num{display:block;font-family:'Cinzel',serif;font-size:8px;color:rgba(201,168,76,.45);letter-spacing:2px;margin-bottom:5px}
+.guest-name{font-family:'Noto Serif KR',serif;font-size:13px;font-weight:300;color:rgba(245,237,216,.88);letter-spacing:1px;position:relative;z-index:1}
+.guest-item.special .guest-name{color:rgba(245,237,216,.45);font-style:italic}
+.guest-badge{display:block;font-size:9px;color:rgba(201,168,76,.5);margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic}
+.heart-float{display:inline-block;animation:heartFloat 2.5s ease-in-out infinite;font-size:11px;margin-right:2px}
+@keyframes heartFloat{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-5px);opacity:1}}
+.guest-count{text-align:center;margin-top:20px;font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(201,168,76,.4);letter-spacing:2px;opacity:0;transition:opacity 1s}
+.guest-count.visible{opacity:1}
+/* Guestbook */
+.gb-form-wrap{border:1px solid rgba(201,168,76,.2);background:rgba(15,8,28,.8);backdrop-filter:blur(10px);padding:28px 28px 24px;position:relative;margin-bottom:20px}
+.gb-form-wrap::before{content:'';position:absolute;inset:6px;border:1px solid rgba(201,168,76,.1);pointer-events:none}
+.gb-form-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--gold-light);margin-bottom:4px;text-align:center}
+.gb-form-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:rgba(201,168,76,.45);margin-bottom:20px;text-align:center}
+.gb-row{display:flex;gap:10px;margin-bottom:10px}
+.gb-input,.gb-textarea{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.22);color:var(--cream);font-family:'Noto Serif KR',serif;font-size:13px;padding:11px 14px;outline:none;width:100%;-webkit-appearance:none;border-radius:0;transition:border-color .3s}
+.gb-input:focus,.gb-textarea:focus{border-color:rgba(201,168,76,.7)}
+.gb-input::placeholder,.gb-textarea::placeholder{color:rgba(245,237,216,.28)}
+.gb-name-input{max-width:140px;flex-shrink:0}
+.gb-textarea{height:70px;resize:none;line-height:1.6}
+.gb-char-count{text-align:right;font-family:'Cinzel',serif;font-size:9px;color:rgba(201,168,76,.35);margin-top:4px;letter-spacing:1px}
+.gb-submit{width:100%;margin-top:14px;padding:13px;background:transparent;border:1px solid rgba(201,168,76,.55);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;cursor:pointer;transition:all .3s}
+.gb-submit:hover:not(:disabled){background:rgba(201,168,76,.08);border-color:var(--gold);box-shadow:0 0 16px rgba(201,168,76,.2)}
+.gb-submit:disabled{opacity:.5;cursor:default}
+.gb-list{display:flex;flex-direction:column;gap:10px}
+.gb-empty{text-align:center;padding:36px 20px;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.35);font-size:14px;line-height:2;border:1px solid rgba(201,168,76,.1)}
+.gb-error{text-align:center;padding:20px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(220,150,150,.7);border:1px solid rgba(220,100,100,.15)}
+.gb-msg{border:1px solid rgba(201,168,76,.13);background:rgba(255,255,255,.025);padding:16px 18px;position:relative;animation:msgIn .5s cubic-bezier(.16,1,.3,1) both}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.gb-msg::before{content:'✦';position:absolute;top:14px;left:14px;color:rgba(201,168,76,.3);font-size:8px}
+.gb-msg-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-left:18px}
+.gb-msg-name{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold)}
+.gb-msg-time{font-family:'Cormorant Garamond',serif;font-size:10px;font-style:italic;color:rgba(201,168,76,.35)}
+.gb-msg-text{font-family:'Noto Serif KR',serif;font-size:13px;color:rgba(245,237,216,.82);line-height:1.75;font-weight:300;padding-left:18px;word-break:keep-all}
+.gb-loading{text-align:center;padding:24px;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.4);font-size:13px;animation:pulse .8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+/* Setup banner */
+#setupBanner{display:none;margin-bottom:16px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);padding:16px 18px}
+#setupBanner p{font-family:'Noto Serif KR',serif;font-size:12px;line-height:1.9;color:rgba(245,237,216,.75)}
+#setupBanner a{color:var(--gold-pale);border-bottom:1px solid rgba(201,168,76,.3)}
+#setupBanner code{background:rgba(201,168,76,.12);padding:1px 6px;font-size:11px;color:var(--gold-light)}
+/* Toast */
+#gbToast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);background:rgba(10,5,20,.97);border:1px solid rgba(201,168,76,.5);padding:11px 24px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);z-index:200;white-space:nowrap;transition:transform .4s cubic-bezier(.16,1,.3,1);box-shadow:0 0 20px rgba(201,168,76,.2)}
+#gbToast.show{transform:translateX(-50%) translateY(0)}
+/* Sparkle */
+.sparkle{position:fixed;pointer-events:none;z-index:1;border-radius:50%;background:var(--gold-light);animation:sparkleAnim linear forwards;opacity:0}
+@keyframes sparkleAnim{0%{opacity:0;transform:scale(0)}15%{opacity:.9;transform:scale(1)}85%{opacity:.3}100%{opacity:0;transform:scale(0)}}
+/* Mobile */
+@media(max-width:480px){
+  .wrapper{padding:44px 14px 70px;gap:24px}
+  .card-frame{padding:44px 22px 34px}
+  .card-frame::before{inset:6px}.card-frame::after{inset:11px}
+  .ornament-top svg{width:130px}
+  .eyebrow{font-size:9px;letter-spacing:3px}
+  .headline{font-size:clamp(22px,7vw,30px)}
+  .info-item{gap:8px;margin-bottom:13px}
+  .info-label{font-size:9px;letter-spacing:2px;min-width:36px}
+  .guest-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .guest-item{backdrop-filter:none;-webkit-backdrop-filter:none;padding:12px 8px}
+  .gb-form-wrap{padding:22px 18px 18px}
+  .gb-row{flex-direction:column;gap:8px}
+  .gb-name-input{max-width:100%}
+}
+@supports not (backdrop-filter:blur(1px)){
+  .card-frame,.gb-form-wrap{background:rgba(10,5,22,.98)!important}
+  .guest-item{background:rgba(10,5,22,.95)!important}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-atm"></div>
+<canvas id="starCanvas"></canvas>
+
+<div class="wrapper">
+
+  <!-- 초대장 -->
+  <div class="card">
+    <div class="card-frame">
+      <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+      <div class="moon-deco">🌙</div>
+      <div class="ornament-top">
+        <svg viewBox="0 0 180 24" fill="none">
+          <line x1="0" y1="12" x2="68" y2="12" stroke="url(#g1)" stroke-width=".8"/>
+          <polygon points="90,2 94,10 90,18 86,10" fill="none" stroke="#C9A84C" stroke-width=".8"/>
+          <circle cx="90" cy="12" r="2" fill="#C9A84C"/>
+          <line x1="112" y1="12" x2="180" y2="12" stroke="url(#g2)" stroke-width=".8"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="68" y2="0"><stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/><stop offset="100%" stop-color="#C9A84C" stop-opacity=".8"/></linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="68" y2="0"><stop offset="0%" stop-color="#C9A84C" stop-opacity=".8"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <p class="eyebrow">You are cordially invited</p>
+      <h1 class="headline">프라이빗 파티에<br>여러분을 초대합니다</h1>
+      <div class="divider"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
+      <div class="info-block">
+        <div class="info-item"><span class="info-label">일시</span><span class="info-colon">—</span><span class="info-value">2026년 2월 27일 금요일 오후 7시</span></div>
+        <div class="info-item"><span class="info-label">장소</span><span class="info-colon">—</span><span class="info-value">강남 밤별 포차 라운지</span></div>
+        <div class="info-item"><span class="info-label">링크</span><span class="info-colon">—</span><span class="info-value"><a href="https://naver.me/GZjieYcW" target="_blank">naver.me/GZjieYcW</a></span></div>
+        <div class="info-item"><span class="info-label">준비물</span><span class="info-colon">—</span><span class="info-value prep-value">세상 사람들을 포용할 따뜻한 마음</span></div>
+      </div>
+      <div class="divider"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
+      <p class="bottom-message">밤하늘 아래, 우리 함께</p>
+    </div>
+  </div>
+
+  <!-- 참가자 명단 -->
+  <div class="guest-section">
+    <div class="section-header"><div class="section-header-line"></div><span class="section-header-text">✦ 참가자 명단 ✦</span><div class="section-header-line"></div></div>
+    <div class="guest-grid" id="guestGrid">
+      <div class="guest-item" data-delay="0"><span class="guest-num">✦ 01</span><span class="guest-name">김단영</span></div>
+      <div class="guest-item" data-delay="80"><span class="guest-num">✦ 02</span><span class="guest-name">김예리</span></div>
+      <div class="guest-item" data-delay="160"><span class="guest-num">✦ 03</span><span class="guest-name">김지연</span></div>
+      <div class="guest-item" data-delay="240"><span class="guest-num">✦ 04</span><span class="guest-name">김찬호</span></div>
+      <div class="guest-item special" data-delay="320"><span class="guest-num">✦ 05</span><span class="guest-name">왕시현</span><span class="guest-badge"><span class="heart-float">♡</span>마음만 보냄</span></div>
+      <div class="guest-item" data-delay="400"><span class="guest-num">✦ 06</span><span class="guest-name">이민지</span></div>
+      <div class="guest-item" data-delay="480"><span class="guest-num">✦ 07</span><span class="guest-name">이율리</span></div>
+      <div class="guest-item" data-delay="560"><span class="guest-num">✦ 08</span><span class="guest-name">이훈규</span></div>
+      <div class="guest-item" data-delay="640"><span class="guest-num">✦ 09</span><span class="guest-name">정세림</span></div>
+      <div class="guest-item" data-delay="720"><span class="guest-num">✦ 10</span><span class="guest-name">최병진</span></div>
+      <div class="guest-item" data-delay="800"><span class="guest-num">✦ 11</span><span class="guest-name">최준기</span></div>
+    </div>
+    <p class="guest-count" id="guestCount">총 11명의 별이 모입니다 — 10인 출석 · 1인 마음출석</p>
+  </div>
+
+  <!-- 방명록 -->
+  <div class="guestbook-section">
+    <div class="section-header"><div class="section-header-line"></div><span class="section-header-text">✦ 방명록 ✦</span><div class="section-header-line"></div></div>
+
+    <!-- Setup 안내 (API 미설정시 표시) -->
+    <div id="setupBanner">
+      <p>⚠️ 방명록을 활성화하려면 아래 단계를 따라 주세요.<br>
+      1. <a href="https://jsonbin.io" target="_blank">jsonbin.io</a>에서 무료 가입<br>
+      2. Dashboard → API Keys → Master Key 복사<br>
+      3. 이 파일의 <code>JSONBIN_KEY</code> 에 붙여넣기<br>
+      4. 저장 후 다시 열면 방명록 활성화!</p>
+    </div>
+
+    <div class="gb-form-wrap">
+      <div class="gb-form-title">한 마디 남겨요</div>
+      <div class="gb-form-sub">LEAVE A MESSAGE TO THE NIGHT</div>
+      <div class="gb-row">
+        <input class="gb-input gb-name-input" id="gbName" type="text" placeholder="이름" maxlength="10">
+        <input class="gb-input" id="gbMsg" type="text" placeholder="기대되는 것, 하고 싶은 말 ✦" maxlength="60">
+      </div>
+      <div class="gb-char-count"><span id="gbCharCnt">0</span> / 60</div>
+      <button class="gb-submit" id="gbSubmit">✦ 등록하기 ✦</button>
+    </div>
+
+    <div class="gb-list" id="gbList"></div>
+  </div>
+
+</div>
+
+<div id="gbToast">✦ 등록됐어요! ✦</div>
+
+<script>
+/* ─────────────────────────────────────────
+   ★ 설정 — 여기만 바꾸면 돼요 ★
+   jsonbin.io 무료 가입 후 아래 두 값을 채워주세요
+   ─────────────────────────────────────────*/
+const JSONBIN_KEY = '';          // Master Key  (예: $2a$10$abc...)
+const JSONBIN_BIN = '';          // Bin ID      (예: 65f3a1b2b...)
+/* ─────────────────────────────────────────*/
+
+/* ════════════════════════════
+   STAR CANVAS
+════════════════════════════ */
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
+resize(); addEventListener('resize', resize);
+
+const GOLDS=['#F0D080','#C9A84C','#FFE8A0','#E8C87A','#FFF8DC','#FFD700'];
+const WHITES=['#FFFFFF','#F0F0FF','#FFFAF0'];
+const isMobile=innerWidth<=480||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+function hexRgba(hex,a){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+class FallingStar{
+  constructor(){this.reset(true)}
+  reset(init=false){
+    this.x=Math.random()*canvas.width; this.y=init?Math.random()*canvas.height:-20;
+    this.len=Math.random()*100+30; this.speed=Math.random()*2+.5;
+    this.op=Math.random()*.8+.2; this.w=Math.random()*2+.4;
+    this.color=GOLDS[Math.floor(Math.random()*GOLDS.length)];
+    this.dx=(Math.random()-.5)*.5; this.glow=Math.random()>.5;
+  }
+  update(){this.x+=this.dx;this.y+=this.speed;if(this.y-this.len>canvas.height)this.reset()}
+  draw(){
+    ctx.save();
+    if(this.glow){ctx.shadowBlur=12;ctx.shadowColor=this.color}
+    const g=ctx.createLinearGradient(this.x,this.y-this.len,this.x,this.y);
+    g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,hexRgba(this.color,this.op));
+    ctx.beginPath();ctx.moveTo(this.x,this.y-this.len);ctx.lineTo(this.x,this.y);
+    ctx.strokeStyle=g;ctx.lineWidth=this.w;ctx.stroke();
+    ctx.beginPath();ctx.arc(this.x,this.y,this.w*1.5,0,Math.PI*2);
+    ctx.fillStyle=hexRgba(this.color,this.op);ctx.shadowBlur=10;ctx.fill();
+    ctx.restore();
+  }
+}
+class TwinkleStar{
+  constructor(){
+    this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;
+    this.r=Math.random()*1.8+.3;this.base=Math.random()*.8+.1;
+    this.phase=Math.random()*Math.PI*2;this.speed=Math.random()*.03+.008;
+    this.color=Math.random()>.4?WHITES[Math.floor(Math.random()*WHITES.length)]:GOLDS[Math.floor(Math.random()*GOLDS.length)];
+    this.cross=Math.random()>.75;
+  }
+  update(){this.phase+=this.speed}
+  draw(){
+    const alpha=this.base*(0.3+0.7*Math.sin(this.phase));
+    const cs=0.5+0.5*Math.sin(this.phase);
+    ctx.save();ctx.shadowBlur=this.cross?14:6;ctx.shadowColor=this.color;
+    ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    ctx.fillStyle=hexRgba(this.color,alpha);ctx.fill();
+    if(this.cross&&alpha>.4){
+      const len=this.r*5*cs;
+      ctx.globalAlpha=alpha*.6;ctx.strokeStyle=this.color;ctx.lineWidth=.5;
+      ctx.beginPath();
+      ctx.moveTo(this.x-len,this.y);ctx.lineTo(this.x+len,this.y);
+      ctx.moveTo(this.x,this.y-len);ctx.lineTo(this.x,this.y+len);
+      const d=len*.6;
+      ctx.moveTo(this.x-d,this.y-d);ctx.lineTo(this.x+d,this.y+d);
+      ctx.moveTo(this.x+d,this.y-d);ctx.lineTo(this.x-d,this.y+d);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+}
+class Glitter{
+  constructor(){this.reset(true)}
+  reset(init=false){
+    this.x=Math.random()*canvas.width;this.y=init?Math.random()*canvas.height:canvas.height+5;
+    this.r=Math.random()*2.5+.5;this.vy=-(Math.random()*.6+.2);
+    this.vx=(Math.random()-.5)*.4;this.phase=Math.random()*Math.PI*2;
+    this.ps=Math.random()*.04+.01;this.color=GOLDS[Math.floor(Math.random()*GOLDS.length)];
+    this.life=0;this.maxLife=Math.random()*300+150;
+  }
+  update(){
+    this.x+=this.vx+Math.sin(this.phase)*.3;this.y+=this.vy;
+    this.phase+=this.ps;this.life++;
+    if(this.y<-10||this.life>this.maxLife)this.reset();
+  }
+  draw(){
+    const a=Math.sin(this.life/this.maxLife*Math.PI)*.9;
+    ctx.save();ctx.shadowBlur=8;ctx.shadowColor=this.color;
+    ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    ctx.fillStyle=hexRgba(this.color,a);ctx.fill();ctx.restore();
+  }
+}
+class ShootingStar{
+  constructor(){this.reset()}
+  reset(){this.active=false;this.timer=Math.random()*300+100}
+  activate(){
+    this.active=true;
+    this.x=Math.random()*canvas.width*.7;this.y=Math.random()*canvas.height*.4;
+    const angle=Math.PI/4+(Math.random()-.5)*.3,speed=Math.random()*12+8;
+    this.vx=Math.cos(angle)*speed;this.vy=Math.sin(angle)*speed;
+    this.len=Math.random()*120+80;this.alpha=0;this.life=0;this.maxLife=60;
+  }
+  update(){
+    if(!this.active){if(--this.timer<=0)this.activate();return}
+    this.x+=this.vx;this.y+=this.vy;this.life++;
+    this.alpha=Math.sin(this.life/this.maxLife*Math.PI);
+    if(this.life>=this.maxLife||this.x>canvas.width+200)this.reset();
+  }
+  draw(){
+    if(!this.active||this.alpha<=0)return;
+    const tx=this.x-(this.vx/Math.hypot(this.vx,this.vy))*this.len;
+    const ty=this.y-(this.vy/Math.hypot(this.vx,this.vy))*this.len;
+    ctx.save();ctx.shadowBlur=20;ctx.shadowColor='#FFF8DC';
+    const g=ctx.createLinearGradient(tx,ty,this.x,this.y);
+    g.addColorStop(0,'rgba(0,0,0,0)');
+    g.addColorStop(.7,`rgba(255,248,220,${this.alpha*.4})`);
+    g.addColorStop(1,`rgba(255,255,255,${this.alpha})`);
+    ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(this.x,this.y);
+    ctx.strokeStyle=g;ctx.lineWidth=2.5;ctx.stroke();
+    ctx.beginPath();ctx.arc(this.x,this.y,3,0,Math.PI*2);
+    ctx.fillStyle=`rgba(255,255,255,${this.alpha})`;ctx.fill();
+    ctx.restore();
+  }
+}
+
+const FC=isMobile?60:150,TC=isMobile?120:280,GC=isMobile?30:80,SC=isMobile?2:4;
+const falling=Array.from({length:FC},()=>new FallingStar());
+const twinkle=Array.from({length:TC},()=>new TwinkleStar());
+const glitters=Array.from({length:GC},()=>new Glitter());
+const shooting=Array.from({length:SC},()=>new ShootingStar());
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  twinkle.forEach(s=>{s.update();s.draw()});
+  falling.forEach(s=>{s.update();s.draw()});
+  glitters.forEach(s=>{s.update();s.draw()});
+  shooting.forEach(s=>{s.update();s.draw()});
+  requestAnimationFrame(animate);
+}
+animate();
+
+function createSparkle(x,y){
+  const el=document.createElement('div');
+  el.className='sparkle';
+  const s=Math.random()*5+2;
+  el.style.cssText=`left:${x-s/2}px;top:${y-s/2}px;width:${s}px;height:${s}px;animation-duration:${Math.random()*.8+.6}s;box-shadow:0 0 ${s*2}px rgba(201,168,76,.6)`;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1500);
+}
+if(!isMobile) document.addEventListener('mousemove',e=>{if(Math.random()>.75)createSparkle(e.clientX,e.clientY)});
+document.addEventListener('touchstart',e=>{createSparkle(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+
+/* ════════════════════════════
+   GUEST LIST REVEAL
+════════════════════════════ */
+(function(){
+  const items=document.querySelectorAll('.guest-item');
+  const countEl=document.getElementById('guestCount');
+  function burst(el,n=10){
+    const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+    for(let i=0;i<n;i++){
+      const p=document.createElement('div'),sz=Math.random()*5+2,angle=(Math.PI*2/n)*i,dist=Math.random()*50+20;
+      const col=GOLDS[Math.floor(Math.random()*GOLDS.length)];
+      p.style.cssText=`position:fixed;border-radius:50%;pointer-events:none;z-index:99;width:${sz}px;height:${sz}px;background:${col};box-shadow:0 0 ${sz*2}px ${col};left:${cx-sz/2}px;top:${cy-sz/2}px;transition:transform .5s ease,opacity .5s ease`;
+      document.body.appendChild(p);
+      requestAnimationFrame(()=>{p.style.transform=`translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px) scale(0)`;p.style.opacity='0'});
+      setTimeout(()=>p.remove(),600);
+    }
+  }
+  items.forEach(el=>el.addEventListener('mouseenter',()=>burst(el,8)));
+  items.forEach(el=>el.addEventListener('click',()=>burst(el,18)));
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target,d=parseInt(el.dataset.delay||0);
+      setTimeout(()=>{el.classList.add('visible');burst(el,6)},d+300);
+      obs.unobserve(el);
+    });
+  },{threshold:.1});
+  items.forEach(el=>obs.observe(el));
+  const obs2=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>countEl.classList.add('visible'),1200);obs2.unobserve(e.target)}});
+  },{threshold:.5});
+  obs2.observe(countEl);
+})();
+
+/* ════════════════════════════
+   GUESTBOOK — jsonbin.io
+════════════════════════════ */
+(function(){
+  const nameEl=document.getElementById('gbName');
+  const msgEl=document.getElementById('gbMsg');
+  const submitEl=document.getElementById('gbSubmit');
+  const listEl=document.getElementById('gbList');
+  const toastEl=document.getElementById('gbToast');
+  const charCnt=document.getElementById('gbCharCnt');
+  const setupBanner=document.getElementById('setupBanner');
+
+  const configured = JSONBIN_KEY !== '' && JSONBIN_BIN !== '';
+
+  /* Show setup guide if not configured */
+  if(!configured){
+    setupBanner.style.display='block';
+    listEl.innerHTML='<div class="gb-empty">방명록 설정 후 사용 가능해요 🌙</div>';
+    submitEl.disabled=true;
+    return;
+  }
+
+  const BASE='https://api.jsonbin.io/v3/b/'+JSONBIN_BIN;
+  const HEADERS={
+    'Content-Type':'application/json',
+    'X-Master-Key': JSONBIN_KEY,
+    'X-Bin-Versioning':'false'
+  };
+
+  msgEl.addEventListener('input',()=>{charCnt.textContent=msgEl.value.length});
+
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function fmt(iso){
+    try{const d=new Date(iso);return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}
+    catch(e){return ''}
+  }
+
+  function renderList(msgs){
+    if(!msgs||msgs.length===0){
+      listEl.innerHTML='<div class="gb-empty">아직 아무도 안 남겼어요 🌙<br>첫 번째 한마디를 남겨보세요!</div>';
+      return;
+    }
+    listEl.innerHTML=msgs.map((m,i)=>`
+      <div class="gb-msg" style="animation-delay:${Math.min(i,8)*.06}s">
+        <div class="gb-msg-header">
+          <span class="gb-msg-name">${esc(m.name||'익명')}</span>
+          <span class="gb-msg-time">${fmt(m.ts)}</span>
+        </div>
+        <div class="gb-msg-text">${esc(m.msg)}</div>
+      </div>`).join('');
+  }
+
+  async function load(){
+    listEl.innerHTML='<div class="gb-loading">불러오는 중 ✦</div>';
+    try{
+      const res=await fetch(BASE+'/latest',{headers:{'X-Master-Key':JSONBIN_KEY}});
+      if(!res.ok)throw new Error(res.status);
+      const json=await res.json();
+      renderList(json.record||[]);
+    }catch(e){
+      listEl.innerHTML='<div class="gb-error">불러오기 실패. 새로고침 해보세요.</div>';
+    }
+  }
+
+  async function submit(){
+    const name=nameEl.value.trim();
+    const msg=msgEl.value.trim();
+    if(!msg){
+      msgEl.focus();msgEl.style.borderColor='rgba(220,100,100,.7)';
+      setTimeout(()=>{msgEl.style.borderColor=''},800);return;
+    }
+    submitEl.disabled=true;submitEl.textContent='✦ 등록 중... ✦';
+    try{
+      // 1) 현재 목록 가져오기
+      const getRes=await fetch(BASE+'/latest',{headers:{'X-Master-Key':JSONBIN_KEY}});
+      const current=getRes.ok?(await getRes.json()).record||[]:[];
+      // 2) 새 항목 추가
+      const next=[{name:name||'익명',msg,ts:new Date().toISOString()},...current].slice(0,100);
+      // 3) 저장
+      const putRes=await fetch(BASE,{method:'PUT',headers:HEADERS,body:JSON.stringify(next)});
+      if(!putRes.ok)throw new Error(putRes.status);
+      nameEl.value='';msgEl.value='';charCnt.textContent='0';
+      renderList(next);
+      showToast();
+      const r=submitEl.getBoundingClientRect();
+      for(let i=0;i<20;i++)createSparkle(r.left+Math.random()*r.width,r.top+Math.random()*r.height);
+    }catch(e){
+      alert('등록 실패. 네트워크를 확인하거나 새로고침 해보세요.');
+    }finally{
+      submitEl.disabled=false;submitEl.textContent='✦ 등록하기 ✦';
+    }
+  }
+
+  function showToast(){
+    toastEl.classList.add('show');
+    setTimeout(()=>toastEl.classList.remove('show'),2500);
+  }
+
+  submitEl.addEventListener('click',submit);
+  msgEl.addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
+  load();
+  setInterval(load,30000);
+})();
+</script>
+</body>
+</html>
